@@ -3,7 +3,7 @@ import { getTicketsByCity, getTicketsById } from "../controllers/tickets.control
 
 const ticketsRouter = Router();
 
-ticketsRouter.get("/cities/:id", getTicketsByCity);
+ticketsRouter.get("/cities/ticket/:id", getTicketsByCity);
 ticketsRouter.get("/ticket/:id", getTicketsById);
 
 export default ticketsRouter;
