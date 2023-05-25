@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getTicketsByCity } from "../controllers/tickets.controllers.js";
+import { getTicketsByCity, getTicketsById } from "../controllers/tickets.controllers.js";
 
 const ticketsRouter = Router();
 
-ticketsRouter.get("/tickets/:id", getTicketsByCity);
+ticketsRouter.get("/cities/:id", getTicketsByCity);
+ticketsRouter.get("/ticket/:id", getTicketsById);
 
 export default ticketsRouter;
