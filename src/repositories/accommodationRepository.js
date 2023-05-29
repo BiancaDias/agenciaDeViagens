@@ -19,9 +19,12 @@ export async function getAccommodationsByCityDB(id){
         FROM accommodation_convenience
         JOIN convenience ON accommodation_convenience.id_convenience = convenience.id
         WHERE accommodation_convenience.id_accommodation = accommodation.id
-      ) AS conveniences
+      ) AS conveniences,
+    c.name AS city_name
     FROM
       accommodation
+    JOIN
+      cities c ON c.id = accommodation.city
     WHERE
       accommodation.city = $1;
   `, [id]);

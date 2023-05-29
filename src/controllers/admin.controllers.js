@@ -1,4 +1,4 @@
-import { postAccommodationDB, postCiasAereasDB, postConveniencesDB, postTicketsDB } from "../repositories/adminRepository.js";
+import { postAccommodationDB, postCiasAereasDB, postCitiesDB, postConveniencesDB, postTicketsDB } from "../repositories/adminRepository.js";
 
 export async function postTickets(req, res){
     const data = req.body;
@@ -11,6 +11,16 @@ export async function postTickets(req, res){
       }
 }
 
+export async function postCities(req, res){
+    const data = req.body;
+    try{
+        await postCitiesDB(data)
+        res.sendStatus(201)
+    }catch (error) {
+        console.log(error);
+        return res.sendStatus(500);
+      }
+}
 export async function postCiasAereas(req, res){
     const data = req.body;
     try{
